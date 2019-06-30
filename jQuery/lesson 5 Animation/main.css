@@ -1,0 +1,9 @@
+.anim, .anim_x, .anim_animate, .anim_posl{
+	margin-top: 5px;
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+p.displayNone{
+	display: none;
+}

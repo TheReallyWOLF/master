@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Добавляем содержимое</title>
+	<script src="Jquery full/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("article").append("Hello"); // добавить текстовый узел последним ребенком
+			$("article").prepend("Hello"); // добавить текстовый узел первым ребенком
+			$("h1").after("<ul id='www'><li>1</li></ul>"); // добавить после элемента
+			$("h1").before("<ul id='qqq'><li>2</li></ul>") // добавить до элемента
+			$("<ul id='qqq'><li>2</li></ul>").appendTo("#p2"); // тоже саоме что и выше ток наоборот запись
+			$("<h2></h2>" , {
+				text: "Добавили строку",
+				class: "myClass",
+				id: "myId"
+			}).prependTo("#rty"); // добавить элемент с заданными свойствами
+
+		});
+	</script>
+</head>
+<body>
+	<ul></ul>
+	<article>
+	<h1>Наша статья</h1>
+	<h3 id="p1">Раздел 1</h3>
+	<p id="rty">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid expedita omnis totam consectetur aut deleniti quos corporis quas assumenda quisquam porro pariatur modi, veritatis cupiditate ratione ipsum maxime, cumque, corrupti a iste officia! Possimus!
+	</p>
+	<h3 id="p2">Раздел 2</h3>
+	<p>Lorem <span id="sp">Lorem ipsum.</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis vero alias magni consequatur id, accusantium quis mollitia pariatur hic sed, quidem aliquid assumenda.</p>
+	</article>
+</body>
+</html>

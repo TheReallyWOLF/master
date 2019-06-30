@@ -1,0 +1,11 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+div{
+	padding: 15px;
+}
+.first{
+	margin-top: 30px;
+	margin-left: 15px;
+}

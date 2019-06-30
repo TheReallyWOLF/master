@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Поиск узлов в дереве документа</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		html {background: #f93; cursor: default;}
+		html, input, button {font: 16px calibri, sans-serif;}
+		div {margin: 0 0 20px; padding: 20px; border:5px solid #ffc;}
+		p {margin: 10px; 0; background:#fff; padding: 10px;}
+	</style>
+	<script type="text/javascript">
+		function f()
+		{
+			var i = document.createElement("em");
+			i.appendChild(document.createTextNode("наклонный"));
+			var b = document.createElement("strong");
+			b.appendChild(document.createTextNode("жирный"));
+			var t = document.createTextNode("текст");
+			var br = document.createElement("br");
+			var f = document.createDocumentFragment();
+			f.appendChild(i);
+			f.appendChild(b);
+			f.appendChild(t);
+			f.appendChild(br);
+			var d = document.getElementsByTagName("div");
+			for (var i = 0; i < d.length; i++) {
+				d[i].insertBefore(f.cloneNode(true), d[i].firstChild);
+			}
+
+		}
+		function fourP()
+		{
+			var par=document.createElement("p"); // узел элемент висящий в памяти
+			var tex = document.createTextNode("Четвертый параграф"); // текстовый узел висящтй в памяти
+			par.appendChild(tex) // назначаем ребенка в p
+			d.appendChild(par) // назаначаем ребенка уже отрисованному элементу что бы он высветился на экране (appendChild) ВСЕГДА ДОБАВЛЯЕТ ПОСЛЕДНИМ РЕБЕНКОМ если надо добавить в конкретное место используется ()
+		}
+		function xMest()
+		{
+		var tr = document.getElementsByClassName("vtor")[0];
+		var par=document.createElement("p");
+		var tex = document.createTextNode("Четвертый параграф");
+		par.appendChild(tex)
+		tr.insertBefore(par, p2); // вставь par после р2
+		}
+
+	</script>
+</head>
+<body>
+	<div id="d">
+		<p>Первый параграф</p>
+		<p id="clickable"><a name="sss" href="javascript:f()">Второй <b>кликабельный</b> параграф</a></p>
+		<p>Третий параграф</p>
+	</div>
+	<div id="vtopoi" class="vtor">
+		<p>Четвертый параграф</p>
+		<p id="click">Пятый параграф</p>
+	</div>
+	<p>Шестой параграф</p>
+	<p>Седьмой параграф</p>
+	<a style="display: block; " href="javascript:fourP()">создать элемент</a>
+	<a style="display: block;" href="javascript:xMest()">вставить на конкретное место</a>
+	<a name="noChild" href=""></a>
+	<script type="text/javascript">
+		var p2 = document.getElementById("click");
+		var a2 = document.links.noChild;
+		var a = document.links.sss;
+		var a1 = a.textContent; // выбирает все текстовые узлы вне зависимости от глубины
+		var d = a.parentNode.parentNode;
+		var s = d.childNodes.length; // все невидимые пробелы это тоже текстовые узлы так что детей тут 7 
+		var p = d.childNodes[3];
+		var q = p.firstChild.firstChild; // "Второй " - но это не ЗНАЧЕНИЕ это текстовый узел
+		var w = p.firstChild.firstChild.nodeValue; // А это значение !!! строка !!!
+		var w1 = p.firstChild.firstChild.nextSibling; // сосед 
+		var w2 = p.firstChild.firstChild.nextSibling.firstChild.nodeValue; // "кликабельный"
+		var x = d.nextSibling; // следующий сосед от d но что бы вытащить именно элемент а не текстовый узел придется использоывть перебор ------> 
+		// while(x&& x.nodeType !=1) x=x.nextSibling; console.log(x);
+
+		// d.getElementsByTagName("p") ---> выбрать в элементе d все элементы с тегом p
+		// d.getElementsByTagName("p")[i] ---> выбрать в элементе d  элементы с тегом p и индексом i;
+	</script>
+</body>
+</html>

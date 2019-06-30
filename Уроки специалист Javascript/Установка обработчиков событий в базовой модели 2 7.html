@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Установка обработчиков событий в базовой модели</title>
+	<style type="text/css">
+		html{background: #fff;cursor: default;font: 16px calibri, sans-serif;}
+		div{padding: 20px;border:5px solid #69c;}
+		p{margin: 0;padding: 30px; background: #ccf;}
+	</style>
+</head>
+<body>
+	<div id="d">
+		<p id="p1" onclick="foo(this)">Кликнуть здесь 1</p>
+		<p id="p2" onclick="foo(this)">Кликнуть здесь 2</p>
+		<p id="p3" onclick="foo(this)">Кликнуть здесь 3</p>
+	</div>
+	<div id ="x"></div>
+<script type="text/javascript">
+	var div = document.getElementById('d');
+	function bar(){console.log(this);}
+	div.onclick = bar; // без круглых скобочек так как не результат исполнения функции а ссылку на неё.
+	var div1 = document.getElementById('x');
+	div1.onclick = function(){ // неудобный велосипед но рабочий
+		bar1.call(div1);
+		bar2.call(div1);
+	};
+	function foo(el){
+		console.log(el);
+	}
+	addHandler(div, "click", foo)
+	addHandler(div, "click", foo1)
+// универсальная функция всплытия el элемент ev событие func исполняемая функция при этом событии
+function addHandler(el, ev, func){
+	try{
+	el.addEventListener(ev, func, false); 
+    }catch(x){el.attachEvent("on"+ev, func)} // для старых браузеров
+}
+	
+    function foo(){console.log("foo")}
+     function foo1(){console.log("foo1")}
+
+	function bar1(){console.log("bar-1");}
+	function bar2(){console.log("bar-2");}
+</script>
+</body>
+</html>

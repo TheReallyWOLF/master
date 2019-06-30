@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Лабораторная работа 3а 3-1 анимация</title>
+	<script src="Jquery full/jquery.js" type="text/javascript"></script>
+	<style type="text/css">
+		.container{
+			border: 1px solid green; height: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+
+
+			var div = $("div#container");
+			div.on("mouseenter", function(){
+				$(this).css("background-color", "yellow")
+						.find("li").eq(2).css("background-color", "red")
+			});
+			
+			div.on("click", function(){
+				$("ul").fadeOut();
+			});
+
+			div.on("mouseleave", function(){
+				$(this).css("background-color", "")
+						.find("li").eq(2).css("background-color", "")
+						.parent().fadeIn();
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<h1>Пробуем эффекты jQuery</h1>
+	<div id="container" class="container">
+		<ul class="myList">
+			<li>Позиция 1</li>
+			<li>Позиция 2</li>
+			<li>Позиция 3</li>
+		</ul>
+	</div>
+</body>
+</html>

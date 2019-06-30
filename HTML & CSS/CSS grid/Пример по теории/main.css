@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	text-align: center;
+}
+.header{
+	grid-area: header;
+	background: #FF0000;
+}
+.footer{
+	grid-area: footer;
+	background: #003CFF;
+}
+.main{
+	grid-area: main;
+	background: #DE00FF;
+}
+.left{
+	grid-area: left;
+	background: #078607;
+}
+.right{
+	grid-area: right;
+	background: #EBF821;
+}
+.container{
+	display: grid;
+	grid-template-areas: "header header header"
+						 "left main right"
+						 "footer footer footer";
+	grid-template-columns: 150px 1fr 150px;
+	grid-template-rows: 100px 1fr 100px;
+	min-height: 100vh; /*прибиваем футер книзу vh - 1% от высоты окна */
+}
+
+@media screen and (max-width: 600px) {
+	.container{
+		grid-template-areas: "header"
+							 "left"
+							 "main"
+							 "right"
+							 "footer";
+		grid-template-columns:100%;
+		grid-template-rows: 100px 50px 1fr 50px 30px;
+	}
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Манипулирование атрибутами</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function changeAttribute()
+		{
+			var allp = document.links[0]
+						.parentNode.parentNode
+						.getElementsByTagName('p');
+			var p;
+			for (var i = 0; i < allp.length; i++) 
+			{
+				p=allp[i]
+				if (p.getAttribute("align") == "left")
+				{
+					p.setAttribute("align", "right");
+				}
+				else
+					p.setAttribute("align", "left");
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Манипулирование атрибутами элемента</h1>
+	<div>
+		<a href="javascript:changeAttribute()">Изменить атрибут aling</a>
+	</div>
+	<p align="left">В этом примере есть несколько параметров текста</p>
+	<div>
+		<p align="right">Причем эти параграфы находятся на разном уровне</p>
+		<p align="left">Наример, некоторые из них вродены в DIV</p>
+	</div>
+	<p align="right">Текст</p>
+	<p align="left">Текст</p>
+</body>
+</body>
+</html>

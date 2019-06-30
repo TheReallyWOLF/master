@@ -1,0 +1,96 @@
+body {
+	background: url();
+	font: 1em Arial;
+	text-transform: uppercase;/*Все буквы заглавные*/
+}
+
+/*********************** Главное меню *********************/
+ 
+ .nav {
+ 	list-style: none;
+ 	padding: 0;
+ 	margin: 30px;
+ 	width: 50px;
+ 	opacity: .5;
+ }
+
+ .nav:hover {
+	opacity: 1;
+	transition: opacity .2s ease-in-out .1s;
+ }
+
+ .nav li {
+ 	height: 50px;
+ 	width: 50px;
+ 	overflow: hidden;
+
+ 	/*transition: width .2s ease-in-out .1s, height .2s ease-in-out .2s .1s;*/
+ 	transition-property: width,height;
+ 	transition-duration: .2s,.5s;
+ 	transition-timing-function: ease-in-out;
+ 	transition-delay: 0s,.2s;
+ }
+
+ .nav li:hover {
+ 	width: 200px;
+ 	height:175px;
+ }
+
+ a {
+ 	text-decoration: none;
+ }
+
+    .nav li a {
+ 	display: block;
+ 	width: 200px;
+ 	height: 40px;
+ 	line-height: 40px;/*выравнивает текст по вертикали зависит от высоты столбика*/
+ 	background: #33C10D;
+ 	margin: 1px;
+ 	color: #491E00;
+ 	padding-left: 15px;
+	/*transition all .4 sease-in-out .1s; */
+ 	transition-property: all; /*для какого свойства*/
+ 	transition-duration: .4s; /*продолжительность переходы*/
+ 	transition-timing-function: ease-in-out;/*как протекает быстрее медленнее или линейно*/
+ 	transition-delay: .1s;/*задержка*/
+ } 
+
+ .nav li a:first-child {
+ 	font-size: 1.2em;
+ 	height: 50px;/*высота столбика*/
+ 	line-height: 50px;/*выравнивает текст по вертикали зависит от высоты столбика*/
+	position: relative;
+	text-indent: 36px;
+ }
+
+ .nav li a:hover {
+ 	background: #00DDDA;
+ }
+/*что бы отобрадался рисунок в псевдо элементе*/
+ .nav li a:first-child::before {
+ 	content: "";
+ 	display: block;
+ 	height: 32px;
+ 	position: absolute;
+ 	width: 32px;
+ 	/*Двигаем иконку*/
+ 	left: 9px;
+ 	top: 9px;
+ }
+
+ .main-menu a:first-child::before {
+ 	background: url(PNG/Дом2.png) center no-repeat;
+ }
+
+ .settings a:first-child::before {
+ 	background: url(PNG/найстройка.png) center no-repeat;
+ }
+
+ .link a:first-child::before {
+ 	background: url(PNG/link.png) center no-repeat;
+ }
+
+ .search a:first-child::before {
+ 	background: url(PNG/лупа2.png) center no-repeat;
+ }

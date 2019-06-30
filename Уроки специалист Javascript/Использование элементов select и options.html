@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>select-options</title>
+ 	<meta charset="utf-8">
+ 	<style type="text/css">
+ 		a{visibility: hidden;}
+ 	</style>
+ 	<script type="text/javascript">
+ 		// коллекция ссылок
+ 		var links = new Object();
+ 		links["Юля"] = "https://vk.com/juli_wolf_tv";
+ 		links["Wolf"] = "https://vk.com/must_not_be_lonely";
+ 		links["Vanya"] = "https://vk.com/kjiapku"
+
+
+ 		function goToUrl()
+ 		{
+ 			var s = document.myForm.selURL;
+ 			var url = s.options[s.selectedIndex].value;
+ 			location.assign(url);
+ 		}
+ 		
+ 	</script>
+ </head>
+ <body>
+ 		<h1>Использование элементов select и options</h1>
+ 		<form id="myForm" name="myForm">
+ 			<label for="selURL" disabled>Выберите человека</label>
+ 			<select id="selURL" name="selURL" disabled>
+ 			<option value="https://vk.com/bluffyy">Пример</option>
+ 			</select>
+ 			<a name="sss" style="sss" href="javascript:goToUrl()">Переход</a>
+		</form>
+
+
+
+		<script type="text/javascript">
+ 			// Создаём в списке SELECT элементы OPTION
+ 		var s = document.myForm.selURL;
+ 		for (var linkName in links)
+ 		{
+ 			var o = new Option();
+ 			o.value = links[linkName];
+ 			o.text = linkName;
+ 			s.add(o);
+ 		}
+ 		// Сделаем все элементы формы доступными
+ 		var f = document.myForm; // или s.form
+ 		for (var i=0; i<f.elements.length; i++)
+ 		{
+ 			f.elements[i].disabled = false;
+ 			document.links.sss.style.visibility = "visible";
+ 		}
+ 		</script>
+ </body>
+ </html>

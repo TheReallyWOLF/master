@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Основы анимации уровень 3а урок 5</title>
+	<script src="Jquery full/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			var max = {
+					"font-size": "+=2",
+					"color":"green"
+					};
+
+			var content = $("div#content");
+			$(".button").on("click", function(){
+				content.css(max)
+					   .animate({"width":"+=100"}, 3000); // 2 параметр это скорость анимации 3 параметром можно поменять график исполнения ( по умолчанию линейный "linear")
+			});
+
+			$(".button1").on("click", function(){
+				content.css({
+					"color":"red"
+				}).animate(
+					{
+					"width"    :"-=100",
+					"font-size": "-=2"
+					},
+
+					{
+						duration: 2000,
+						complete: function(){console.log("stop")},
+						step: function(){
+							console.log("Текущий размер: ", $(this).css("font-size"))}
+					}
+
+					);
+			});
+
+
+
+		});
+	</script>
+	<style type="text/css">
+		.content{
+			width: 400px;
+			background: silver;
+			padding: 2em;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lorem ipsum dolor sit amet.</h1>
+	<div class="content" id="content">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam non optio sed iusto laboriosam consequuntur, deserunt enim illo eveniet sunt voluptatem officiis libero, culpa porro officia quaerat, quasi eligendi autem obcaecati odit quibusdam dolores id repellendus. Non quae, aliquid totam!
+	</div>
+	<button class="button">+2</button>
+	<button class="button1">-2</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Отмена действия по умолчанию</title>
+	<style type="text/css">
+		html {background: #f0f0f0; cursor: default;}
+		html, input, button {font: 16px calibri, sans-serif}
+		form{float: left;padding: 20px; border: 5px solid #69c; background: #fff;}
+	</style>
+	<script type="text/javascript">
+		/*function test(e,p){
+			alert(p);
+			return false;
+		}
+		function f(e) {
+			document.forms.search.onsumbit = new Function ("test(this, "x")");
+			window.onload = f;
+		}*/
+		function foo(){
+			alert("Hello");
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<form 
+	action="https://www.youtube.com/channel/UCKBeXTtDhk2aWqty0KCixuQ" 
+	name="search" 
+	onsubmit="return foo()"> 
+		<input type="text" name="q" value="булочка">
+		<button type="submit">Отправить</button>
+	</form>
+</body>
+</html>

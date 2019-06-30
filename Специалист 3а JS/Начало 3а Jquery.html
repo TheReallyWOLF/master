@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Начало</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<script src="Jquery full/jquery.js" type="text/javascript"></script>
+	<script>
+		//$(document).ready(function(){......}); обсалютно равно $(function(){...}); это обертка что бы скрипт писать вверху а не внизу
+		//console.log($("li"));
+		//var xxx = document.body.childNodes[1];
+		//$(xxx);
+		//var div = $("div");
+		//$("li", div) // выбрать все Li в элементе div
+		$(function(){
+		  $("ul li:even").addClass("mylist"); // добавить выбанным элементам класс (четнным li)
+
+		 if($("li:first").is(".mylist")) // если li первый чайлд (элемент) то ...
+		  	console.log("Yes");
+
+
+		  var lis = $("li");
+		  var mylist = lis.filter(".mylist") // выборка !!
+		  var notList = lis.not(".mylist") // обратная выборка элементы у которых НЕТ
+		  var inSpan = lis.has("span");
+		  	});
+	</script>
+	<style>
+		.mylist{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>Певый пункт</li>
+			<li>Второй пункт</li>
+			<li><span>Третий пункт</span></li>
+			<li>Четвертый пункт</li>
+		</ul>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>

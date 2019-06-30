@@ -1,0 +1,10 @@
+#block {
+	background: green;
+}
+
+#block2 .text2 {
+	background: red;
+}
+p {
+	background: orange;
+}
